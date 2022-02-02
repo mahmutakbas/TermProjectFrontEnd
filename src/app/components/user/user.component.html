@@ -1,0 +1,50 @@
+<div class="row">
+    <button class="btn btn-danger">asdas</button>
+</div>
+<div class="row">
+<div *ngIf="loadedData == false" class="spinner-border text-danger center" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Kişi Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Mail adresi giriniz">
+</div>
+<div *ngIf="filterText.length>3" class="alert alert-success">
+    {{filterText}} aradınız
+</div>
+<div class="table-responsive-md">
+    <table *ngIf="loadedData == true" class="table">
+        <thead class="table-dark">
+            <tr>
+                <td>Id</td>
+                <td>Name Surname</td>
+                <td>Mail</td>
+                <td></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let user of users | filterPipe:filterText">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name}} {{user.surname}}</td>
+                <td>{{ user.email }}</td>
+                <td class="col-lg-3">
+                    <button (click)="getListFriends(user.id)" routerLink="/users/friend/{{ user.id }}" type="button"
+                        class="btn btn-primary" style="margin-right: 7px" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Arkadaş Listesi">
+                        <i-feather name="users"></i-feather>
+                    </button>
+                    <button routerLink="/users/guzergah/{{user.id}}" class="btn btn-info" style="margin-right: 7px">
+                        <i-feather name="map-pin" style="color: white;" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Güzergah Listele"></i-feather>
+                    </button>
+                    <button routerLink="/users/userguzergah/{{user.id}}" class="btn btn-success">
+                        <i-feather name="map" style="color: white;" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Tüm Güzergahları Listele"></i-feather>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div></div>

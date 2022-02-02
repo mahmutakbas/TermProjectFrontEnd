@@ -1,0 +1,27 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
+    aria-labelledby="offcanvasWithBackdropLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Menu</h5>
+       
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="offcanvas-body px-0">
+            <div class="list-group">
+                <a routerLink="/" class="list-group-item list-group-item-action text-primary  " data-bs-dismiss="offcanvas"  aria-label="Close"> <i-feather name="home"></i-feather> <span class="text-center text-size" style="margin-left: 15px;">Home </span> </a>
+                <a routerLink="/users/" class="list-group-item list-group-item-action text-primary  " data-bs-dismiss="offcanvas"  aria-label="Close">  <i-feather name="users"></i-feather> <span class="text-center text-size" style="margin-left: 15px;">  Users </span></a>
+                <a routerLink="/drawsearch/" class="list-group-item list-group-item-action text-primary  " data-bs-dismiss="offcanvas"  aria-label="Close"> <i-feather name="map"></i-feather> <span class="text-center text-size" style="margin-left: 15px;">Draw Search</span></a>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-danger" (click)="logOut()" data-bs-dismiss="offcanvas"><i-feather name="log-out" ></i-feather>Çıkış</button>
+</div>
+<button class="btn float-start btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+    aria-controls="offcanvasWithBackdrop" role="button">
+    <i-feather name="menu" aria-hidden="true" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+        aria-controls="offcanvasWithBackdrop"></i-feather>
+</button>
+
+<script>
+    feather.replace()
+  </script>

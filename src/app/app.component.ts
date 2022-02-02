@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TermProject';
+  constructor(private authService:AuthService){}
+  title: string = 'TermProject';
+  user: string = "Mahmut AKBAŞ";
+  isValid:boolean;
+  ngOnInit(): void {
+    this.isValid=this.authService.isAuthenticated();
+    console.log(this.isValid);
+  }
+
+
 }
+
+

@@ -1,0 +1,21 @@
+<div class="row o"  >
+  <div class="col-md-3 ">
+    <ul class="list-group ">
+      <li (click)="getRouteDetailLine(route)" *ngFor="let route of routes" href="#"
+        class="list-group-item list-group-item-action" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ route.id }}</h5>
+          <small>{{ route.routestartdate | date: "short" }}</small>
+        </div>
+        <small class="mb-1">Route Length :
+          {{ (route.km | number)}} km </small>
+        <br />
+        <small class="mb-1">Route Time :
+          {{ route.rTime }}</small>
+      </li>
+    </ul>
+  </div>
+    <div class="col-md-9" id="mapa-mapbox" style="Height:100vh;"></div>
+</div>
+
+
